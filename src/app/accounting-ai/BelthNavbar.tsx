@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { label: "Platform", href: "https://www.belth.net/platform" },
   { label: "Engagement", href: "https://www.belth.net/engagement" },
   { label: "OEM", href: "https://www.belth.net/oem-partnership" },
-  { label: "AI Solutions", href: "https://ai-solutions-5ea5xg3pd-belth.vercel.app/" },
+  { label: "AI Solutions", href: "https://ai-solutions-cdesjfdi2-belth.vercel.app/" },
   { label: "About", href: "https://www.belth.net/about" },
   { label: "Contact", href: "https://www.belth.net/contact" },
 ] as const;
