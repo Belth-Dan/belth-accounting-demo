@@ -188,11 +188,21 @@
 }
 
 .accounting-ai-page .belth-lang-switcher {
-  display: flex;
   align-items: center;
   flex-wrap: nowrap;
   gap: 0;
   min-width: 0;
+}
+
+.accounting-ai-page .belth-lang-switcher-desktop {
+  display: none;
+}
+
+.accounting-ai-page .belth-lang-switcher-mobile {
+  display: flex;
+  padding: 0.25rem 0.5rem 0.85rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--ai-border);
 }
 
 .accounting-ai-page .belth-lang-switcher-item {
@@ -298,6 +308,14 @@
 @media (min-width: 900px) {
   .accounting-ai-page .belth-site-nav-links {
     display: flex;
+  }
+
+  .accounting-ai-page .belth-lang-switcher-desktop {
+    display: flex;
+  }
+
+  .accounting-ai-page .belth-lang-switcher-mobile {
+    display: none;
   }
 
   .accounting-ai-page .belth-site-nav-cta {
@@ -632,11 +650,11 @@
 }
 @media (max-width: 600px) {
   .accounting-ai-page .feature-grid { grid-template-columns: 1fr; }
-  .accounting-ai-page .belth-lang-switcher-btn {
-    font-size: 0.65rem;
-    padding: 0.15rem 0.1rem;
+  .accounting-ai-page .belth-lang-switcher-mobile .belth-lang-switcher-btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.25rem;
   }
-  .accounting-ai-page .belth-lang-switcher-sep {
-    margin: 0 0.1rem;
+  .accounting-ai-page .belth-lang-switcher-mobile .belth-lang-switcher-sep {
+    margin: 0 0.15rem;
   }
 }

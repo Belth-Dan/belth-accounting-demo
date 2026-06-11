@@ -9,7 +9,7 @@ const NAV_HREFS = {
   platform: "https://www.belth.net/platform",
   engagement: "https://www.belth.net/engagement",
   oem: "https://www.belth.net/oem-partnership",
-  aiSolutions: "https://ai-solutions-cdesjfdi2-belth.vercel.app/",
+  aiSolutions: "https://ai-solutions-git-main-belth.vercel.app/",
   about: "https://www.belth.net/about",
   contact: "https://www.belth.net/contact",
 } as const;
@@ -34,6 +34,28 @@ export default function BelthNavbar() {
     setLang(next);
   };
 
+  const langSwitcher = (extraClass = "") => (
+    <div
+      className={`belth-lang-switcher ${extraClass}`.trim()}
+      role="group"
+      aria-label="Language"
+    >
+      {LANG_OPTIONS.map((option, index) => (
+        <span key={option.code} className="belth-lang-switcher-item">
+          {index > 0 && <span className="belth-lang-switcher-sep" aria-hidden="true">|</span>}
+          <button
+            type="button"
+            className={`belth-lang-switcher-btn${lang === option.code ? " is-active" : ""}`}
+            onClick={() => handleLangChange(option.code)}
+            aria-pressed={lang === option.code}
+          >
+            {option.label}
+          </button>
+        </span>
+      ))}
+    </div>
+  );
+
   return (
     <nav className="belth-site-nav">
       <div className="belth-site-nav-inner">
@@ -50,21 +72,7 @@ export default function BelthNavbar() {
         </div>
 
         <div className="belth-site-nav-actions">
-          <div className="belth-lang-switcher" role="group" aria-label="Language">
-            {LANG_OPTIONS.map((option, index) => (
-              <span key={option.code} className="belth-lang-switcher-item">
-                {index > 0 && <span className="belth-lang-switcher-sep" aria-hidden="true">|</span>}
-                <button
-                  type="button"
-                  className={`belth-lang-switcher-btn${lang === option.code ? " is-active" : ""}`}
-                  onClick={() => handleLangChange(option.code)}
-                  aria-pressed={lang === option.code}
-                >
-                  {option.label}
-                </button>
-              </span>
-            ))}
-          </div>
+          {langSwitcher("belth-lang-switcher-desktop")}
 
           <a href={CONTACT_URL} className="belth-site-nav-cta">
             {t.nav.bookDemo}
@@ -95,6 +103,7 @@ export default function BelthNavbar() {
 
       {mobileOpen && (
         <div className="belth-site-nav-mobile">
+          {langSwitcher("belth-lang-switcher-mobile")}
           {navLinks.map((link) => (
             <a
               key={link.key}
