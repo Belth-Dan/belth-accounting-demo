@@ -184,6 +184,47 @@
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
+  min-width: 0;
+}
+
+.accounting-ai-page .belth-lang-switcher {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  min-width: 0;
+}
+
+.accounting-ai-page .belth-lang-switcher-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.accounting-ai-page .belth-lang-switcher-sep {
+  color: var(--ai-text-subtle);
+  font-size: 0.7rem;
+  margin: 0 0.2rem;
+  user-select: none;
+}
+
+.accounting-ai-page .belth-lang-switcher-btn {
+  border: none;
+  background: transparent;
+  color: var(--ai-text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.15rem;
+  cursor: pointer;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+
+.accounting-ai-page .belth-lang-switcher-btn:hover {
+  color: var(--ai-cyan);
+}
+
+.accounting-ai-page .belth-lang-switcher-btn.is-active {
+  color: var(--ai-cyan);
 }
 
 .accounting-ai-page .belth-site-nav-cta {
@@ -591,4 +632,11 @@
 }
 @media (max-width: 600px) {
   .accounting-ai-page .feature-grid { grid-template-columns: 1fr; }
+  .accounting-ai-page .belth-lang-switcher-btn {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.1rem;
+  }
+  .accounting-ai-page .belth-lang-switcher-sep {
+    margin: 0 0.1rem;
+  }
 }
