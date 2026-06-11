@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import type { PageId } from '@/types'
@@ -33,12 +34,24 @@ export default function DemoNav({ currentPage, onNav }: Props) {
         backdropFilter: 'blur(12px)',
       }}
     >
-      <div className="max-w-5xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between gap-4">
-        {/* Logo */}
-        <button
-          onClick={() => onNav('home')}
-          className="flex items-center gap-2.5 shrink-0"
-        >
+      <div className="max-w-5xl mx-auto px-4 md:px-6 h-14 flex items-center justify-between gap-2 sm:gap-4 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 shrink">
+          <Link
+            href="/accounting-ai"
+            className="text-xs shrink-0 whitespace-nowrap transition-colors duration-150"
+            style={{ color: 'var(--text2)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--cyan)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text2)')}
+          >
+            <span className="sm:hidden">← Terug</span>
+            <span className="hidden sm:inline">← Terug naar overzicht</span>
+          </Link>
+
+          {/* Logo */}
+          <button
+            onClick={() => onNav('home')}
+            className="flex items-center gap-2.5 shrink-0 min-w-0"
+          >
           <div
             className="px-2 py-1 rounded text-xs font-bold tracking-widest"
             style={{ background: 'var(--cyan)', color: 'var(--navy)' }}
@@ -63,7 +76,8 @@ export default function DemoNav({ currentPage, onNav }: Props) {
           >
             DEMO
           </span>
-        </button>
+          </button>
+        </div>
 
         {/* Desktop tabs */}
         <nav className="hidden lg:flex items-center gap-1 overflow-x-auto">
@@ -138,6 +152,14 @@ export default function DemoNav({ currentPage, onNav }: Props) {
           className="lg:hidden border-t px-4 py-3 flex flex-col gap-1"
           style={{ borderColor: 'var(--border)', background: 'rgba(10,15,30,0.99)' }}
         >
+          <Link
+            href="/accounting-ai"
+            className="text-left px-3 py-2 rounded text-sm mb-1"
+            style={{ color: 'var(--text2)' }}
+            onClick={() => setMobileOpen(false)}
+          >
+            ← Terug naar overzicht
+          </Link>
           {tabs.map((tab) => (
             <button
               key={tab.id}
